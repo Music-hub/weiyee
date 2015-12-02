@@ -67,6 +67,7 @@ $('#googlesignin').click(function(){
 	window.open('/auth/facebook', 'Login...','width=400,height=200,resizeable,scrollbars');
 });
 
-$('#email-auth-ajax').submit(function(){
+$('#email-auth-ajax').submit(function(e){
+    e.preventDefault();
 	$.post('/auth/email/json');
 });
