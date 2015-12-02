@@ -1,0 +1,121 @@
+.footer {
+  text-align: center;
+  background:#333333;
+  color: #dddddd;
+
+}
+.footer a {
+  color: #dddddd;
+}
+.contain {
+	margin-top: 47px;
+	background-color: rgba(200,200,200,1);
+	min-height: 100%;
+}
+.folder{	
+	padding-left: 250px;
+	margin: 20px;
+	width:100%;
+}
+.leftmenu{
+	width: 210px;
+	position: absolute;
+}
+.floatleft{
+	float: left;
+}
+.ui.items > .item > .image + .content{
+	padding-left: 0 !important;
+}
+.score{
+	width:300px !important;
+	margin-bottom:15px !important;
+	margin-right:25px !important;
+	margin-top: 0px !important;
+	background-color: #EAEAEA !important;
+	padding:10px !important;
+
+}
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+.clear{
+	clear: both;
+}
+.docposition{
+	padding-top: 20px;
+	padding-left: 40px;
+}
+float:after {
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+    content: ".";
+}
+
+
+.content2{
+	text-align: center;
+	background-color: #FFF;
+
+}
+.info{
+	text-align: left;
+	padding-top: 30px;
+	padding-left: 60px;
+	padding-right: 60px;
+
+}
+.content2title{
+	padding-top: 30px;
+}
+.signupbottom{
+	padding-bottom: 50px;
+}
+.socialbutton{
+	text-align: center;
+	margin: 40px 0px 0px 20px;
+	padding-bottom: 50px;
+}
+.space{
+	margin-left: 20px !important;
+	margin-right: 20px !important;
+}
+
+
+
+
+.pop-box {
+	/*弹出窗口后，弹出的DIV采用此CSS，保证置于最上层
+	  z-index控制Z轴的坐标，数值越大，离用户越近
+	*/
+	z-index: 999; /*这个数值要足够大，才能够显示在最上层*/
+
+	display: none;
+	position: absolute;
+	background-color: rgba(100,100,100,0.5);
+	border: solid1px #6e8bde;
+	max-width: 800px;
+	min-width: 355px;
+}
+
+#bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	/*弹出窗口后，添加遮罩层，采用此CSS，将该层置于弹出DIV和页面层之间
+	  z-index控制Z轴的坐标，数值越大，离用户越近
+	*/
+	z-index: 5;  
+	background-color: rgba(100,100,100,0.5);
+}
