@@ -32,7 +32,7 @@
 	margin-bottom:15px !important;
 	margin-right:25px !important;
 	margin-top: 0px !important;
-	background-color: #EAEAEA !important;
+	background-color: #F7F7F7 !important;
 	padding:10px !important;
 
 }
@@ -97,13 +97,25 @@ float:after {
 	  z-index控制Z轴的坐标，数值越大，离用户越近
 	*/
 	z-index: 999; /*这个数值要足够大，才能够显示在最上层*/
-
 	display: none;
 	position: absolute;
 	background-color: rgba(100,100,100,0.5);
 	border: solid1px #6e8bde;
-	max-width: 800px;
-	min-width: 355px;
+	left:50%;
+}
+
+#pop-div1{
+	width:400px;
+	height: 270px;
+	margin-left: -200px;
+	margin-top:-550px;
+}
+
+#pop-div2{
+	width:600px;
+	height: 420px;
+	margin-left: -300px;
+	margin-top:-600px;
 }
 
 #bg {
