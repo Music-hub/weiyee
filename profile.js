@@ -47,3 +47,8 @@ $('#email-auth-ajax').submit(function(e){
     e.preventDefault();
 	$.post('/auth/email/json');
 });
+
+$('#email-register').submit(function(e){
+    e.preventDefault();
+    $.post('/register/email');
+});
