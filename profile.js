@@ -40,7 +40,7 @@ $('#fbsignin').click(function(){
 });
 
 $('#googlesignin').click(function(){
-	window.open('/auth/facebook', 'Login...','width=400,height=200,resizeable,scrollbars');
+	window.open('/auth/google', 'Login...','width=400,height=200,resizeable,scrollbars');
 });
 
 $('#email-auth-ajax').submit(function(e){
@@ -51,4 +51,9 @@ $('#email-auth-ajax').submit(function(e){
 $('#email-register').submit(function(e){
     e.preventDefault();
     $.post('/register/email');
+});
+
+$('#create').click(function(e){
+    e.preventDefault();
+    $.post('/api/sheet/create');
 });
