@@ -131,3 +131,25 @@ float:after {
 	z-index: 5;  
 	background-color: rgba(100,100,100,0.5);
 }
+
+.create-link {
+	
+    animation-name: example;
+    animation-duration: 0.5s;;
+    animation-iteration-count: infinite;
+    
+    -webkit-animation-name: example;
+    -webkit-animation-duration: 0.5s;;
+    -webkit-animation-iteration-count: infinite;
+}
+
+/* The animation code */
+@keyframes example {
+    from {color: white;}
+    to {color: yellow;}
+}
+
+@-webkit-keyframes example {
+    from {color: white;}
+    to {color: yellow;}
+}
