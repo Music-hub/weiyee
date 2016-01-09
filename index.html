@@ -10,8 +10,8 @@
     <meta charset="utf-8">
     <title>username</title>
     <meta name=viewport content="width=device-width, initial-scale=1">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="profile.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="semantic.min.css">
     <link rel="stylesheet" type="text/css" href="semantic-ui-icon/icon.min.css"/>
@@ -34,7 +34,7 @@
           root.setAttribute( "class", "ie-9" );
        </script>
     <![endif]-->
-    <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.js"></script>
     <script src="semantic.js"></script>
 
   </head>
@@ -128,18 +128,18 @@
           <div class="ui add header">Create a sheet music</div>   
         </div>
       </div>
-      <div class="score">
+      <div class="score templete">
         <div class="ui header">Moanin</div>
         <div class="ui divider"></div>
         <div class="content">My Song is awesome!</div>
         <div class="buttons">
-          <button class="ui teal circular icon button">
+          <button class="ui teal circular icon button edit">
             <i class="large write icon"></i>
           </button>
-          <button class="ui teal circular icon button">
+          <button class="ui teal circular icon button play">
             <i class="large play icon"></i>
           </button>
-          <button class="ui red discard circular icon button">
+          <button class="ui red discard circular icon button delete">
             <i class="large delete icon"></i>
           </button>
         </div>
@@ -158,7 +158,7 @@
             <input class="name" type="text">
           </div>
           <div class="field">
-            <label>Discription</label>
+            <label>Description</label>
             <textarea class="disc" rows="6"></textarea>
           </div>
         </div>
@@ -236,6 +236,29 @@
           <button class="ui facebook huge button space" id="fbsignin"><i class="facebook icon"></i> Facebook </button>
           <button class="ui google plus huge button space" id="googlesignin"><i class="google plus icon"></i> Google Plus </button>
           </div>
+        </div>
+      </div>
+    </div>
+    <div id='pop-div3' class="pop-box">
+      <div class="content3">
+        <h1 class="content3title">Finish Register</h1>
+        <div class="info">
+          <form class="ui form" id="email-register-finish" method="POST">
+            <div class="field">
+              <label>Password</label>
+              <input name="password" placeholder="Your Password" type="password">
+            </div>
+            <div class="field">
+              <label>Password again</label>
+              <input name="password2" placeholder="Your Password Again" type="password">
+            </div>
+            <div class="field">
+              <label>User Name</label>
+              <input name="username" placeholder="Your usernamen" type="text">
+            </div>
+            <button class="ui button" type="submit">Register</button>
+          </form>
+         </div>
         </div>
       </div>
     </div>

@@ -80,7 +80,7 @@ body {
 @media screen and (min-width: 700px) {
   #repo {
     position:relative;
-    height:100%;
+    min-height:100%;
     margin-top:40px;
     margin-left:329px;
     background-color: #666666;
@@ -92,7 +92,7 @@ body {
 @media screen and (max-width: 700px) {
   #repo {
     position:relative;
-    height:100%;
+    min-height:100%;
     margin-top:40px;
     background-color: #666666;
     background: #eeeeee;
@@ -149,11 +149,10 @@ body {
     
 /*----------------------*/
 
-/*------Pop up----*/
-.content2{
+
+.content2, .content3{
 	text-align: center;
 	background-color: #FFF;
-
 }
 .info{
 	text-align: left;
@@ -163,6 +162,9 @@ body {
 
 }
 .content2title{
+	padding-top: 30px;
+}
+.content3title{
 	padding-top: 30px;
 }
 .signupbottom{
@@ -208,6 +210,12 @@ body {
 	margin-top:-600px;
 }
 
+#pop-div3{
+	width:600px;
+	height: 420px;
+	margin-left: -300px;
+	margin-top:-600px;
+}
 #bg {
 	width: 100%;
 	height: 100%;
@@ -242,4 +250,9 @@ body {
 @-webkit-keyframes example {
     from {color: white;}
     to {color: yellow;}
+}
+
+/*---------hide elements used as templete-----------*/
+.templete {
+    display: none;
 }
