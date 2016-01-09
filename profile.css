@@ -1,66 +1,155 @@
-.footer {
-  text-align: center;
-  background:#333333;
-  color: #dddddd;
-
-}
-.footer a {
-  color: #dddddd;
-}
-.contain {
-	margin-top: 47px;
-	background-color: rgba(200,200,200,1);
-	min-height: 100%;
-}
-.folder{	
-	padding-left: 250px;
-	margin: 20px;
-	width:100%;
-}
-.leftmenu{
-	width: 210px;
-	position: absolute;
-}
-.floatleft{
-	float: left;
-}
-.ui.items > .item > .image + .content{
-	padding-left: 0 !important;
-}
-.score{
-	width:300px !important;
-	margin-bottom:15px !important;
-	margin-right:25px !important;
-	margin-top: 0px !important;
-	background-color: #F7F7F7 !important;
-	padding:10px !important;
-
-}
-.clearfix:after {
-    content: "."; 
-    display: block; 
-    height: 0; 
-    clear: both; 
-    visibility: hidden;
+/*---------body,html-----------*/
+body {
+  position: relative;
+  width:100%;
+  height:100%;
+  border:none;
+  margin:none;
 }
 
-.clearfix {display: inline-block;}
-.clear{
-	clear: both;
+/*---------top menu-------*/
+@media screen and (min-width: 700px) {
+  #nav_phone{
+    display:none;
+  }
 }
-.docposition{
-	padding-top: 20px;
-	padding-left: 40px;
-}
-float:after {
-    display: block;
-    visibility: hidden;
-    height: 0;
-    clear: both;
-    content: ".";
+@media screen and (max-width: 700px) {
+  #nav_pc{
+    display:none;
+  }
 }
 
+/*-----User Condition----*/
+#user { 
+  /*position: fixed;
+  height: 500px;
+  width: 280px;
+  margin-top: 30px;
+  margin-bottom: 80px;
+  margin-left: 30px;
+  background-color: #666666;
+  background: #ffffff;
+  box-shadow: 0 0 1px #aaaaaa;*/
+}
 
+/*-----footer------*/
+@media screen and (min-width: 700px){
+  .footer {
+    text-align: center;
+    background:#333333;
+    color: #dddddd;
+  }
+  .footer a {
+    color: #dddddd;
+  }
+}
+@media screen and (max-width: 700px){
+   .footer {
+     display: none;
+   }
+}
+/*----------------*/
+    
+/*--------User-------*/
+@media screen and (min-width: 700px) {
+  #user {
+    position: absolute;
+    top:30px;
+    left:35px;
+  }
+  .id {
+    text-align: center;
+  }
+
+  #user .content{
+    width: 250px;
+    height: 350px;
+    word-wrap: break-word; 
+    word-break: normal; 
+  }
+}
+@media screen and (max-width: 700px) {
+  #user{
+    display: none;
+  }
+}
+
+/*-------------------*/  
+    
+/*----Repo-------*/
+@media screen and (min-width: 700px) {
+  #repo {
+    position:relative;
+    height:100%;
+    margin-top:40px;
+    margin-left:329px;
+    background-color: #666666;
+    background: #eeeeee;
+    box-shadow: 0 0 1px #333333;
+    overflow-y: auto;
+  }
+}
+@media screen and (max-width: 700px) {
+  #repo {
+    position:relative;
+    height:100%;
+    margin-top:40px;
+    background-color: #666666;
+    background: #eeeeee;
+    box-shadow: 0 0 1px #333333;
+    overflow-y: auto;
+  }
+}
+
+/*-------Score-----------*/
+.score {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width:250px;
+  height:250px;
+  padding: 20px;
+  margin:30px;
+  background: #ffffff;
+  box-shadow: 0 0 1px #aaaaaa;
+}
+    
+.content {
+  position: absolute;
+  padding: 10px;
+  height:120px;
+}
+
+.buttons{
+  position: absolute;
+  bottom:15px;
+}
+
+.add_score {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width:250px;
+  height:250px;
+  padding: 20px;
+  margin:30px;
+  background: #aaaaaa;
+}
+    
+.add_buttons{
+  margin-top:55px;
+  text-align:center;
+}
+.ui.add.header {
+  color: #ffffff;
+}
+.ui.add.button {
+  background: #aaaaaa;  
+}
+    
+/*----------------------*/
+
+/*------Pop up----*/
 .content2{
 	text-align: center;
 	background-color: #FFF;
@@ -88,9 +177,10 @@ float:after {
 	margin-left: 20px !important;
 	margin-right: 20px !important;
 }
-
-
-
+.modal_body {
+  margin: 20px;
+}
+/*----------------*/
 
 .pop-box {
 	/*弹出窗口后，弹出的DIV采用此CSS，保证置于最上层

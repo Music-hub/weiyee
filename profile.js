@@ -1,38 +1,30 @@
-$('.ui.dropdown')
-  .dropdown()
-;
+$('#signup').click(function(){
 
-$(function(){
-    $('#signup').click(function(){
-
-        $('#bg').css({'display':'block',
-    		'position':'fixed'});
-        $('#pop-div1').css({'display':'block',
-			'position':'fixed'});
-        $('#pop-div2').css({'display':'none'});
-    });
-    $('#bg').click(function(){
-        $('#bg').css({'display':'none'});
-        $('#pop-div1').css({'display':'none'});
-    });
+  $('#bg').css({'display':'block',
+    'position':'fixed'});
+  $('#pop-div1').css({'display':'block',
+    'position':'fixed'});
+  $('#pop-div2').css({'display':'none'});
+});
+$('#bg').click(function(){
+  $('#bg').css({'display':'none'});
+  $('#pop-div1').css({'display':'none'});
 });
 
+$('#signin').click(function(){
 
-$(function(){
-    $('#signin').click(function(){
+  $('#bg').css({'display':'block',
+    'position':'fixed'});
 
-        $('#bg').css({'display':'block',
-    		'position':'fixed'});
+  $('#pop-div2').css({'display':'block',
+    'position':'absolute'});
 
-        $('#pop-div2').css({'display':'block',
-			'position':'absolute'});
-        
-        $('#pop-div1').css({'display':'none'});
-    });
-    $('#bg').click(function(){
-        $('#bg').css({'display':'none'});
-        $('#pop-div2').css({'display':'none'});
-    });
+  $('#pop-div1').css({'display':'none'});
+});
+
+$('#bg').click(function(){
+  $('#bg').css({'display':'none'});
+  $('#pop-div2').css({'display':'none'});
 });
 
 $('#fbsignin').click(function(){
@@ -48,46 +40,9 @@ $('#email-auth-ajax').submit(function(e){
 	$.post('/auth/email/json');
 });
 
-var templete = 
-  '<div class="item floatleft score">' +
-    '<div class="image">' +
-      '<i class="massive file text outline icon docposition"></i>' +
-    '</div>' +
-    '<div class="content">' +
-      '<a class="header">標題</a>' +
-      '<div class="meta">' +
-        '<span>Description</span>' +
-      '</div>' +
-      '<div class="description">' +
-        '<p></p>' +
-      '</div>' +
-      '<div class="extra">Additional Details ' +
-      '</div>' +
-      '<div class="extra">' +
-        '<div class="ui right floated primary button">Edit <i class="right chevron icon"></i>' +
-        '</div>' +
-      '</div>' +
-    '</div>' +
-  '</div>';
-
-function showSheetList(sheets) {
-  var temp
-  $('.items').html('');
-  for (var i = 0; i < sheets.length; i++) {
-    temp = $(templete);
-    temp.find('.header').text(sheets[i].name);
-    temp.find('.button').click(function (sheet) {
-      location.href = "/editor/" + sheet._id;
-    }.bind(null, sheets[i]))
-    $('.items').append(temp);
-  }
-}
-
-$(function () {
-  $.get( 'setting/get', function (event) {
-    if (event.level === "error") return
-    showSheetList(event.data.sheets)
-  })
+$.get( 'setting/get', function (event) {
+  if (event.level === "error") return
+  showSheetList(event.data.sheets)
 })
 
 window.onmessage = function onmessage (ev) {
@@ -104,3 +59,67 @@ window.onmessage = function onmessage (ev) {
       break;
   }
 }
+
+$('.ui.dropdown').dropdown();
+
+$('.add_score').on('click',function(){
+  $('.ui.modal').modal('show');
+});
+
+$('.add_score').mouseenter(function(){
+  $(this).fadeTo( "slow", 0.33 );
+});
+
+$('.add_score').mouseleave(function(){
+  $(this).fadeTo( "slow", 1 );
+});
+
+$('#modal_button_add').on('click',function(){
+    
+  var name,disc;
+  name = $('.name').val();
+  disc = $('.disc').val();
+
+  $('#repo').append('<div class="score">'+
+                      '<div class="ui header">'+name+'</div>'+
+                      '<div class="ui divider"></div>'+
+                      '<div class="content">'+disc+'</div>'+
+                      '<div class="buttons">'+
+                        '<button class="ui teal circular icon button">'+
+                          '<i class="large write icon"></i>'+
+                        '</button>'+
+                        '<button class="ui teal circular icon button">'+
+                          '<i class="large play icon"></i>'+
+                        '</button>'+
+                        '<button class="ui red discard circular icon button">'+
+                          '<i class="large delete icon"></i>'+
+                        '</button>'+
+                      '</div>'+
+                    '</div>');
+});
+
+$('.name, .disc').keyup(function(){
+    
+  var name,disc;
+  name = $('.name').val();
+  disc = $('.disc').val();
+  if(name!="")
+    $('#modal_button_add').removeClass('disabled');
+  else
+    $('#modal_button_add').addClass('disabled');
+});
+
+$('#modal_button_cancel').on('click',function(){
+  $('.ui.modal').modal('hide');
+});
+
+$('#repo').on('click','.score .discard.button',function(){
+    
+  $(this).parent().parent().remove();
+});
+
+$('.ui.setting.item').on('click',function(){
+
+  $('.ui.sidebar').sidebar('toggle');
+
+});
