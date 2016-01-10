@@ -197,24 +197,27 @@ body {
 }
 
 #pop-div1{
+  top: 50%;
 	width:400px;
 	height: 270px;
 	margin-left: -200px;
-	margin-top:-550px;
+	margin-top:-135px;
 }
 
 #pop-div2{
+  top: 50%;
 	width:600px;
 	height: 420px;
 	margin-left: -300px;
-	margin-top:-600px;
+	margin-top:-210px;
 }
 
 #pop-div3{
+  top: 50%;
 	width:600px;
 	height: 420px;
 	margin-left: -300px;
-	margin-top:-600px;
+	margin-top:-210px;
 }
 #bg {
 	width: 100%;
@@ -255,4 +258,11 @@ body {
 /*---------hide elements used as templete-----------*/
 .templete {
     display: none;
+}
+
+
+/*---------icon relate to log in/out--------------*/
+
+.post-login {
+  display: none !important;
 }

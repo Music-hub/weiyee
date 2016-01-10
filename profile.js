@@ -78,11 +78,13 @@ function showSheetList(sheets) {
   var temp;
   for (var i = 0; i < sheets.length; i++) {
     temp = $(templete);
+    temp.attr('data-sheet-id', sheets[i]._id);
     temp.find('.header').text(sheets[i].name);
     temp.find('.content').text(sheets[i].description || '');
     temp.find('.button.edit, .button.play').click(function (sheet) {
       location.href = "/editor/" + sheet._id;
     }.bind(null, sheets[i]))
+    temp.find('.button.delete').click(removeSheet.bind(null, sheets[i]._id));
     // $('.add_score').append(temp);
     temp.insertAfter('.add_score')
     
@@ -95,6 +97,19 @@ function showSheetList(sheets) {
       , (sheets.length - i - 1) * 100)
     } (temp))
   }
+}
+
+function removeSheet(id) {
+  if (!confirm('Are you sure you want to delete this?')) return;
+  $.post('/api/sheet/remove/' + id, {}, function (event) {
+    if (event.level === "error") return alert(event.message);
+    var item = $('div[data-sheet-id=' + id + ']')
+    item.animate({opacity: 0}, 500, function () {
+      item.animate({width: 0}, 500, function () {
+        item.remove();
+      })
+    })
+  })
 }
 
 $(function () {
@@ -344,15 +359,3 @@ $('.name, .disc').keyup(function(){
 $('#modal_button_cancel').on('click',function(){
   $('.ui.modal').modal('hide');
 });
-/*
-$('#repo').on('click','.score .discard.button',function(){
-    
-  $(this).parent().parent().remove();
-});
-
-$('.ui.setting.item').on('click',function(){
-
-  $('.ui.sidebar').sidebar('toggle');
-
-});
-*/
