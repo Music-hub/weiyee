@@ -74,19 +74,26 @@ $('#googlesignin').click(function(){
 
 var templete = $('.score.templete').removeClass('templete').detach()[0].outerHTML;
 
-
 function showSheetList(sheets) {
   var temp;
   for (var i = 0; i < sheets.length; i++) {
     temp = $(templete);
     temp.find('.header').text(sheets[i].name);
-    
-    temp.find('.content').text('');
-    
+    temp.find('.content').text(sheets[i].description || '');
     temp.find('.button.edit, .button.play').click(function (sheet) {
       location.href = "/editor/" + sheet._id;
     }.bind(null, sheets[i]))
-    $('#repo').append(temp);
+    // $('.add_score').append(temp);
+    temp.insertAfter('.add_score')
+    
+    temp.css('opacity', 0);
+    (function (temp) {
+      setTimeout(
+        function () {
+          temp.animate({'opacity': 1}, 500);
+        }
+      , (sheets.length - i - 1) * 100)
+    } (temp))
   }
 }
 
@@ -282,11 +289,29 @@ $('.add_score').mouseleave(function(){
 });
 
 $('#modal_button_add').on('click',function(){
-    
+  var createAPIPath = '/api/sheet/create';
   var name,disc;
   name = $('.name').val();
   disc = $('.disc').val();
-
+  
+	var sheet = Sheet([
+		Channel([], "treble", "C")
+	], 4);
+	
+  if (name && disc) {
+    $.post(createAPIPath, {
+	    data: JSON.stringify(sheet.toObject()),
+	    name: name,
+	    description: disc
+	  },
+	  function (ev) {
+	    if (ev.level === "error") return alert('error: ' + ev.message);
+	    var sheetId = ev.data._id;
+	    showSheetList([ev.data]);
+	    $('.ui.modal').modal('hide');
+	  })
+  }
+  /*
   $('#repo').append('<div class="score">'+
                       '<div class="ui header">'+name+'</div>'+
                       '<div class="ui divider"></div>'+
@@ -302,7 +327,7 @@ $('#modal_button_add').on('click',function(){
                           '<i class="large delete icon"></i>'+
                         '</button>'+
                       '</div>'+
-                    '</div>');
+                    '</div>');*/
 });
 
 $('.name, .disc').keyup(function(){
@@ -319,7 +344,7 @@ $('.name, .disc').keyup(function(){
 $('#modal_button_cancel').on('click',function(){
   $('.ui.modal').modal('hide');
 });
-
+/*
 $('#repo').on('click','.score .discard.button',function(){
     
   $(this).parent().parent().remove();
@@ -330,3 +355,4 @@ $('.ui.setting.item').on('click',function(){
   $('.ui.sidebar').sidebar('toggle');
 
 });
+*/
