@@ -134,6 +134,9 @@ body {
   padding: 20px;
   margin:30px;
   background: #aaaaaa;
+  
+  /*---- make it look like a button -----*/
+  cursor: pointer;
 }
     
 .add_buttons{
