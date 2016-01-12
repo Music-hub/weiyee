@@ -200,7 +200,8 @@ body {
 	z-index: 999; /*这个数值要足够大，才能够显示在最上层*/
 	display: none;
 	position: absolute;
-	background-color: rgba(100,100,100,0.5);
+	/* background-color: rgba(100,100,100,0.5); */
+	background-color: white;
 	border: solid1px #6e8bde;
 	left:50%;
 }
