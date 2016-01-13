@@ -52,6 +52,15 @@ $('.ui.dropdown')
   .dropdown()
 ;
 
+function switchLoginStatus(isLogin) {
+  if (isLogin) {
+    $('.pre-login').removeClass('pre-login').addClass('not-pre-login')
+    $('.not-post-login').removeClass('not-post-login').addClass('post-login')
+  } else {
+    $('.post-login').removeClass('post-login').addClass('not-post-login')
+    $('.not-pre-login').removeClass('not-pre-login').addClass('pre-login')
+  }
+}
 
 $(function(){
     console.log(QueryString);
@@ -64,6 +73,7 @@ $(function(){
 		  'position':'absolute'});
     $('#bg').off('click');
 });
+
 $('#fbsignin').click(function(){
 	window.open('/auth/facebook', 'Login...','width=400,height=200,resizeable,scrollbars');
 });
@@ -71,6 +81,15 @@ $('#fbsignin').click(function(){
 $('#googlesignin').click(function(){
 	window.open('/auth/google', 'Login...','width=400,height=200,resizeable,scrollbars');
 });
+
+$('#signout').click(function () {
+  $.post('/logout', {},function (ev) {
+    if (ev.level !== 'error') {
+      $('.score').remove();
+      switchLoginStatus(false);
+    }
+  })
+})
 
 var templete = $('.score.templete').removeClass('templete').detach()[0].outerHTML;
 
@@ -115,7 +134,8 @@ function removeSheet(id) {
 $(function () {
   $.get( 'setting/get', function (event) {
     if (event.level === "error") return
-    showSheetList(event.data.sheets)
+    showSheetList(event.data.sheets);
+    switchLoginStatus(true);
   })
 })
 
@@ -127,6 +147,7 @@ window.onmessage = function onmessage (ev) {
     case "success":
       showSheetList(event.data.sheets)
       $('#bg').click();
+      switchLoginStatus(true);
       break;
     case "error":
       alert('login error');

@@ -303,6 +303,6 @@ body {
 
 /*---------icon relate to log in/out--------------*/
 
-.post-login {
+.not-post-login, .not-pre-login {
   display: none !important;
 }
