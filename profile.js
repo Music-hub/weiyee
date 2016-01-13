@@ -52,7 +52,10 @@ $('.ui.dropdown')
   .dropdown()
 ;
 
+var login_status = false;
+
 function switchLoginStatus(isLogin) {
+  login_status = !!isLogin;
   if (isLogin) {
     $('.pre-login').removeClass('pre-login').addClass('not-pre-login')
     $('.not-post-login').removeClass('not-post-login').addClass('post-login')
@@ -334,7 +337,7 @@ $('#modal_button_add').on('click',function(){
 		Channel([], "treble", "C")
 	], 4);
 	
-  if (name && disc) {
+  if (name && disc && (login_status || confirm('You are not logined, you won\'t able to manamer this sheet again after close browser. would you like to continue?'))) {
     $.post(createAPIPath, {
 	    data: JSON.stringify(sheet.toObject()),
 	    name: name,
@@ -343,6 +346,9 @@ $('#modal_button_add').on('click',function(){
 	  function (ev) {
 	    if (ev.level === "error") return alert('error: ' + ev.message);
 	    var sheetId = ev.data._id;
+	    
+	    if (!login_status) return (location.href = '/editor/' + sheetId);
+	    
 	    showSheetList([ev.data]);
 	    $('.ui.modal').modal('hide');
 	  })
